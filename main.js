@@ -110,7 +110,6 @@ const navMenu = document.querySelector('nav ul')
 // console.log(navMenu);
  
  const navLinks = document.querySelector('.nav-links') 
-console.log(navLinks);
 
 
 const closeIconNav  =  document.querySelector('.berger-menu .fa-xmark')
@@ -160,17 +159,39 @@ function  showModal(displayMode) {
 
 
 
+// show hide video pop up 
+
+const btnPlayVideo = document.getElementById('popUpVideo') ;
+
+const videoPopUp = document.getElementById('videoContent')
+console.log(videoPopUp);
+
+
+
+function popUpVideo() { 
+    videoPopUp.classList.add('show-video')
+}
+
+function closeVideoPopUp(params) {
+    videoPopUp.classList.remove('show-video')
+}
+
+
+
+
+// End pop up video show hide 
+
 
 
 
 // Drak mode // 
 
 const  sunIcon = document.getElementById('sun-icon')
-console.log(sunIcon);
+// console.log(sunIcon);
 
 
 const  moonIcon = document.getElementById('moon-icon')
-console.log(moonIcon);
+// console.log(moonIcon);
 
 
 const bodyTag = document.getElementById('body')

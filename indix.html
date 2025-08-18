@@ -245,47 +245,77 @@
       </section>
 
       <!-- about section -->
-      <section  class="about-sec" > 
-           <div class="titles-content">
+      <section class="about-sec">
+        <div class="titles-content">
           <!-- make animation -->
           <p class="sub-title">About us</p>
           <h1 class="title">Learn More About Us</h1>
         </div>
         <div class="container">
-
-          <div class="about-left"> 
+          <div class="about-left">
             <div class="tabel-img">
-              <img src="./imgs/About/about1.jpg" alt="">
-            </div> 
+              <img src="./imgs/About/about1.jpg" alt="" />
+            </div>
             <div class="order-number">
-              <h3> Make an order </h3>
-              <p> +1 5589 55488 55 </p>
+              <h3>Make an order</h3>
+              <p>+1 5589 55488 55</p>
             </div>
-
-          </div> 
-
-          <div class="about-right"> 
-            <p class="descption">Welcome to YumRun, where culinary excellence meets a cozy atmosphere. We are dedicated to providing a unique dining experience.</p>
-            <div class="check-list">
-              <p  class="key-benefit" > Key Benefits Fresh, locally sourced ingredients for every dish. </p>
-              <p class="key-benefit" >Expert chefs crafting every plate with passion and precision. </p>
-              <p class="key-benefit" > A warm and inviting atmosphere perfect for any occasion. </p>
-            </div>  
-
-            <p class="info" > Our Promise Our menu is a celebration of flavors, designed to delight your senses. From our signature appetizers to our decadent desserts, every meal is an unforgettable journey. We look forward to serving you. </p>
-
-            <div class="breakfast-img">
-              <img src="./imgs/About/about2.jpg" alt="">
-              <!-- make animation -->
-              <i  title="play video" class="fa-solid fa-chevron-right"></i>
-            </div>
-
           </div>
 
+          <div class="about-right">
+            <p class="descption">
+              Welcome to YumRun, where culinary excellence meets a cozy
+              atmosphere. We are dedicated to providing a unique dining
+              experience.
+            </p>
+            <div class="check-list">
+              <p class="key-benefit">
+                Key Benefits Fresh, locally sourced ingredients for every dish.
+              </p>
+              <p class="key-benefit">
+                Expert chefs crafting every plate with passion and precision.
+              </p>
+              <p class="key-benefit">
+                A warm and inviting atmosphere perfect for any occasion.
+              </p>
+            </div>
+
+            <p class="info">
+              Our Promise Our menu is a celebration of flavors, designed to
+              delight your senses. From our signature appetizers to our decadent
+              desserts, every meal is an unforgettable journey. We look forward
+              to serving you.
+            </p>
+
+            <div class="breakfast-img">
+              <img src="./imgs/About/about2.jpg" alt="" />
+              <!-- make animation -->
+              <i
+                title="play video"
+                class="fa-solid fa-chevron-right"
+                id="popUpVideo" 
+                onclick="popUpVideo()"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <!-- pop up video -->
+        <div class="video-popUp" id="videoContent">
+          <iframe
+  src="https://www.youtube.com/embed/xPPLbEFbCAo?autoplay=1&mute=1&modestbranding=1&rel=0&showinfo=0&loop=1&playlist=xPPLbEFbCAo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay;
+  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          >
+          </iframe>
+            <i onclick="closeVideoPopUp()" title="close video" class="fa-solid fa-x floating-x "></i>
         </div>
       </section>
 
-      <!--  --> 
+      <!--  -->
 
       <!-- Services -->
       <section id="services" class="services">
@@ -429,8 +459,7 @@
           <!--  -->
         </div>
       </div>
-      <!-- End Team section --> 
-
+      <!-- End Team section -->
     </main>
 
     <!-- Start Footer -->

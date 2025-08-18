@@ -777,6 +777,7 @@ nav ul li a:hover {
 .about-sec {
   padding: var(--section-padding);
   background-color: var(--section-bg-color);
+  position: relative;
 }
 
 .about-sec .container {
@@ -884,11 +885,10 @@ nav ul li a:hover {
 }
 
 .breakfast-img i {
-   transform: rotate3d(0, 1, 0, 360deg); /* spins diagonally */
-   animation: rotateVideoBtn 2s linear infinite;
+  transform: rotate3d(0, 1, 0, 360deg); /* spins diagonally */
+  animation: rotateVideoBtn 2s linear infinite;
   transform-origin: center;
 }
-
 
 /* animation */
 @keyframes rotateVideoBtn {
@@ -905,6 +905,46 @@ nav ul li a:hover {
     transform: rotate3d(0, 1, 0, 360deg); /* finish spin */
   }
 }
+
+/* Pop up video  */
+
+.video-popUp {
+  width: 100%;
+  min-height: 120dvh;
+  background-color: var(--popup-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  overflow: hidden;
+}
+
+.video-popUp iframe {
+  min-height: 70dvh;
+  width: 90%;
+  /* aspect-ratio: auto; */
+  border: 12px solid var(--main-color);
+  position: relative;
+  margin-top: 150px;
+}
+
+.video-popUp i {
+font-size: 30px;
+    color: gray;
+    position: absolute;
+    z-index: 20;
+   top: 293px;
+    right: 25px;
+    cursor: pointer;
+}
+.show-video {
+  display: flex;
+}
+
+/* End Pop up video  */
 
 /*=================== End  about section ====================== */
 
