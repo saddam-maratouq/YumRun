@@ -88,6 +88,10 @@ p,
   font-family: "Inter", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 h1,
 .logo {
   font-family: "Playfair Display", serif;
@@ -932,22 +936,21 @@ nav ul li a:hover {
 }
 
 .video-popUp i {
-font-size: 30px;
-    color: gray;
-    position: absolute;
-    z-index: 20;
-   top: 293px;
-    right: 25px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: var(--transtion-speed);
+  font-size: 30px;
+  color: gray;
+  position: absolute;
+  z-index: 20;
+  top: 293px;
+  right: 25px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: var(--transtion-speed);
 }
 
 .video-popUp i:hover {
   opacity: 1;
   color: #fff;
 }
-
 
 .show-video {
   display: flex;
@@ -1023,6 +1026,100 @@ font-size: 30px;
   background-color: var(--hover-btn);
 }
 /* End  Services */
+
+/*=================== Start our Menu ====================== */
+
+.meal-sec {
+  padding: var(--section-padding);
+  background-color: var(--website-bg-color);
+}
+
+.meal-sec .container {
+  /* background-color: gray; */
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; */
+}
+
+.meal-sec input[type="search"] {
+  /* flex: 1; */
+  width: 100%;
+  padding: 18px 12px;
+  border-radius: 50px;
+  outline: none;
+  border: 2px solid #80808024;
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+
+.meal-sec input[type="search"]:focus {
+  border: 3px solid var(--main-color);
+  outline: none;
+}
+
+.category-content {
+  margin-bottom: 40px;
+  display: inline-flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.category-content span {
+  width: 150px;
+  text-align: center;
+  padding: 20px;
+}
+
+.category-content span.active {
+  background-color: var(--hover-btn);
+}
+
+.foods-card {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  height: 1000px;
+  overflow: scroll;
+}
+
+.food-card {
+  border: 2px solid var(--main-color);
+  text-align: center;
+  border-radius: 5px;
+  /* padding: 30px 0; */
+  padding: 0 0 20px;
+}
+
+.food-card .food-image {
+  width: 100%;
+  margin: auto;
+}
+
+.food-card .food-image img {
+  max-width: 100%;
+}
+
+.food-card .food-details {
+}
+
+.food-card .food-details h3 {
+  font-size: 25px;
+  color: var(--website-text-color);
+  margin-bottom: 10px;
+}
+
+.food-card .food-details p {
+  color: var(--main-color);
+  font-size: 20px;
+}
+
+.food-card .add-to-cart-btn {
+  width: 200px;
+  margin-top: 10px;
+}
+
+/*=================== end  our Menu ====================== */
 
 /*=================== Start our app  ====================== */
 
@@ -1327,10 +1424,6 @@ footer .container {
     flex-direction: column;
     text-align: center;
     row-gap: 50px;
-  }
-
-  footer {
-    background-color: red;
   }
 }
 

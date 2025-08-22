@@ -67,16 +67,22 @@
     <!-- reset css  Normalize -->
     <link rel="stylesheet" href="css/reset.css" />
 
-    <!-- Main js  -->
+    <!-- External Main js  -->
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
     <script
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
       integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script>
-    <script defer src="./main.js"></script>
+    ></script> 
+
+    <!-- local js file  -->
+    <script defer src="./main.js"></script>  
+    <script defer src="./js/meal-api.js"></script>
+
+
   </head>
 
   <body id="body">
@@ -293,7 +299,7 @@
               <i
                 title="play video"
                 class="fa-solid fa-chevron-right"
-                id="popUpVideo" 
+                id="popUpVideo"
                 onclick="popUpVideo()"
               ></i>
             </div>
@@ -302,7 +308,7 @@
         <!-- pop up video -->
         <div class="video-popUp" id="videoContent">
           <iframe
-  src="https://www.youtube.com/embed/xPPLbEFbCAo?autoplay=1&mute=1&modestbranding=1&rel=0&showinfo=0&loop=1&playlist=xPPLbEFbCAo"
+            src="https://www.youtube.com/embed/xPPLbEFbCAo?autoplay=1&mute=1&modestbranding=1&rel=0&showinfo=0&loop=1&playlist=xPPLbEFbCAo"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay;
@@ -311,13 +317,16 @@
             allowfullscreen
           >
           </iframe>
-            <i onclick="closeVideoPopUp()" title="close video" class="fa-solid fa-x floating-x "></i>
+          <i
+            onclick="closeVideoPopUp()"
+            title="close video"
+            class="fa-solid fa-x floating-x"
+          ></i>
         </div>
       </section>
-
       <!--  -->
 
-      <!-- Services -->
+    <!--Services-->
       <section id="services" class="services">
         <div class="titles-content">
           <!-- make animation -->
@@ -353,9 +362,59 @@
           </div>
         </div>
       </section>
-      -->
 
       <!-- Most populer Meal  -->
+
+      <section class="meal-sec">
+        <div class="titles-content">
+          <!-- make animation -->
+          <p class="sub-title">our Menu</p>
+          <h1 class="title">Explore Meals</h1>
+        </div>
+        <div class="container">
+          <input
+            type="search"
+            name=""
+            id="searchMeal"
+            placeholder="🔍 Search 300+ meals from around the world..."
+          /> 
+
+          <div class="category-content"  id="categoryContent" >
+            <!-- <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span>
+            <span class="btn " > category name  </span> -->
+          </div>  
+
+
+          <div class="foods-card" id="foodMenu"  > 
+
+            <!-- Chicken Roll -->
+            <div class="food-card" >
+              <div class="food-image">
+                <img src="./imgs/chicken-roll.png" alt="Chicken Roll" />
+              </div>
+              <div class="food-details">
+                <h3>Chicken Roll</h3>
+                <p class="price">$7.50</p>
+              </div>
+              <div class="add-to-cart">
+                <button class="add-to-cart-btn btn ">Add to Cart</button>
+              </div>
+            </div>  
+            <!--  --> 
+          </div>
+        </div>
+      </section>
 
       <!-- End  populer Meal  -->
 

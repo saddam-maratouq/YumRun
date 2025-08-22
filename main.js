@@ -27,7 +27,7 @@ const arrowScroollUp = document.getElementById('link-scroll')
 window.addEventListener('scroll' , () => {
     // 
     if (window.pageYOffset > 20) {
-        console.log(window.pageYOffset); // scroll y space 
+        // console.log(window.pageYOffset); // scroll y space 
         
         arrowScroollUp.classList.add('active') 
     }
@@ -47,7 +47,7 @@ window.addEventListener('scroll' , () => {
 
 let linkElments = document.querySelectorAll('nav ul li') 
 
-console.log('linkElments is', linkElments);  
+// console.log('linkElments is', linkElments);  
 
 
 linkElments.forEach( link => { 
@@ -164,7 +164,7 @@ function  showModal(displayMode) {
 const btnPlayVideo = document.getElementById('popUpVideo') ;
 
 const videoPopUp = document.getElementById('videoContent')
-console.log(videoPopUp);
+// console.log(videoPopUp);
 
 
 
