@@ -46,7 +46,7 @@ function showAllMeal(MealsData) {
 
 
 
-    return ` <div class="food-card">
+    return ` <div class="food-card"  data-id=${id} >
               <div class="food-image">
                 <img src=${image} alt="Double Beef Burger" />
               </div>
@@ -93,7 +93,7 @@ function filterMealsByCategory(Meals, e ) {
   
   let foodAfterFilter =  filteredFood.map( food => {
 
-      return ` <div class="food-card">
+      return ` <div class="food-card"   data-id=${food.id} >
               <div class="food-image">
                 <img src=${food.image} alt="${food.title}" />
               </div>

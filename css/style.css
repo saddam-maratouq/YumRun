@@ -658,6 +658,121 @@ nav ul li a:hover {
 
 /* End  Sign up  Modal  */
 
+/* Cart Modal */
+
+.cart-popup {
+  height: 73dvh;
+  background-color: var(--website-bg-color);
+  width: 25%;
+  position: absolute;
+  top: 113px;
+  right: 7px;
+  z-index: 100;
+  padding: 0 0 10px 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  display: none;
+}
+
+.cart-popup.cart-active {
+  display: block;
+}
+
+.cart-popup .cart-title {
+  text-align: center;
+  color: var(--website-text-color);
+  font-size: 25px;
+  padding: 30px 0;
+  font-weight: 800;
+  border-bottom: 1px solid #8080801f;
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-title .fa-xmark {
+  font-size: 20px;
+  background-color: var(--hover-btn);
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.cart-popup .cart-list {
+  overflow: scroll;
+  height: 435px;
+}
+
+.cart-popup .food-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #8080801f;
+  color: var(--website-text-color);
+}
+
+.cart-popup .food-item:last-child {
+  border-bottom: none;
+}
+
+.cart-popup .food-item img {
+  width: 140px;
+}
+
+.cart-popup .info {
+  margin-left: 20px;
+  line-height: 28px;
+}
+
+.cart-popup .info h3 {
+  font-size: 18px;
+}
+
+.cart-popup .quantity-btns {
+  margin-left: auto;
+  margin-right: 40px;
+  display: flex;
+  width: 75px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quantity-btns .quantity-btn {
+  background-color: var(--hover-btn);
+  color: white;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btns span {
+  font-size: 14px;
+}
+
+.price-total {
+  text-align: center;
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 20px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.pay-btn {
+  margin: 0 auto;
+  display: block;
+  margin-top: 40px;
+  background-color: var(--hover-btn);
+  width: 200px;
+}
+
+/* End Cart Modal  */
+
 /* End header  */
 
 /*=================== Start hero section ====================== */
@@ -669,7 +784,7 @@ nav ul li a:hover {
   align-items: center;
   justify-items: center;
   background-color: var(--website-bg-color);
-  lpadding: 200px 0;
+  padding: 200px 0;
 }
 
 .hero-sec .container {
@@ -835,6 +950,7 @@ nav ul li a:hover {
 .about-right .check-list {
   margin-bottom: 30px;
   line-height: 40px;
+  color: var(--website-text-color);
 }
 
 .about-right .check-list .key-benefit::before {
@@ -856,6 +972,7 @@ nav ul li a:hover {
 .about-right .info {
   line-height: 30px;
   margin-bottom: 40px;
+  color: var(--website-text-color);
 }
 
 .breakfast-img {
