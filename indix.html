@@ -118,7 +118,7 @@
           <a  href="#" onclick="showCartItems()"  class="cart-content" id="cartContent" >
             <!-- <i class="fa-solid fa-cart-shopping"></i> -->
             <i class="fa fa-shopping-bag"></i>
-            <span> 1 </span>
+            <span id="numOfFood" > 1 </span>
           </a>
 
           <button onclick="tougleMoonSunIcon()" class="swith-icon">
@@ -212,79 +212,9 @@
           <p class="cart-title" > Your Cart  
               <i  onclick="hideCartItems()" class="fa-solid fa-xmark"  title="close cart " ></i>  
           </p>   
-          <div class="cart-list"> 
-                        <!-- item 1  -->
-          <div class="food-item">
-            <img src="./imgs/pizza.png" alt=""> 
-            <div class="info">
-              <h3> chicken </h3>
-              <p>$10</p>
-            </div> 
-            <div class="quantity-btns" > 
-              <a  class="quantity-btn" href=""> + </a> 
-              <span> 0 </span>
-              <a  class="quantity-btn" href="">-</a>
-            </div>
-          </div> 
-
-          <!-- item 2  -->
-          <div class="food-item">
-              <i class="fa-solid fa-trash-alt trash-icon "></i>
-              <img src="https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg" alt=""> 
+          <div class="cart-list"  id="cart-list" > 
+        <!-- item 1  -->
             
-            <div class="info">
-              <h3> chicken </h3>
-              <p>$10</p>
-            </div> 
-            <div class="quantity-btns" > 
-              <a  class="quantity-btn" href=""> + </a> 
-              <span> 0 </span>
-              <a  class="quantity-btn" href="">-</a>
-            </div>
-          </div> 
-
-          <!-- item 3  -->
-          <div class="food-item">
-            <img src="./imgs/pizza.png" alt=""> 
-            <div class="info">
-              <h3> chicken </h3>
-              <p>$10</p>
-            </div> 
-            <div class="quantity-btns" > 
-              <a  class="quantity-btn plus" href=""> + </a> 
-              <span> 1 </span>
-              <a  class="quantity-btn minus" href="">-</a>
-            </div>
-          </div> 
-
-                <!-- item 3  -->
-          <div class="food-item">
-            <img src="./imgs/pizza.png" alt=""> 
-            <div class="info">
-              <h3> chicken </h3>
-              <p>$10</p>
-            </div> 
-            <div class="quantity-btns" > 
-              <a  class="quantity-btn plus" href=""> + </a> 
-              <span> 1 </span>
-              <a  class="quantity-btn minus" href="">-</a>
-            </div>
-          </div> 
-
-                <!-- item 3  -->
-          <div class="food-item">
-            <img src="./imgs/pizza.png" alt=""> 
-            <div class="info">
-              <h3> chicken </h3>
-              <p>$10</p>
-            </div> 
-            <div class="quantity-btns" > 
-              <a  class="quantity-btn plus" href=""> + </a> 
-              <span> 1 </span>
-              <a  class="quantity-btn minus" href="">-</a>
-            </div>
-          </div> 
-
           </div>
 
           <h4 class="price-total" > total : <span> $ </span> </h4>
@@ -483,7 +413,8 @@
                 <button class="add-to-cart-btn btn ">Add to Cart</button>
               </div>
             </div>  
-            <!--  --> 
+            <!--  -->  
+
           </div>
         </div>
       </section>

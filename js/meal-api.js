@@ -2,6 +2,17 @@ const foodContainerMeals = document.getElementById("foodMenu");
 const categoryContent = document.getElementById("categoryContent");
 let priceCounter = 19
 
+let cartFoodNumber = document.getElementById('numOfFood') 
+console.log(cartFoodNumber);
+
+
+
+// to show cart when refresh 
+window.addEventListener('DOMContentLoaded', () => {
+  // your code here
+    updateCart() 
+});
+
 
 
 const letters = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -32,6 +43,7 @@ async function getAllMealsByLetters() {
 
   showAllMeal(allMeals);
   getCategories(allMeals);
+
 }
 
 
@@ -55,7 +67,7 @@ function showAllMeal(MealsData) {
                 <p class="price"> $ ${orginalPrice}</p>
               </div>
               <div class="add-to-cart">
-                <button class="add-to-cart-btn btn">Add to Cart</button>
+                <button type='button' class="add-to-cart-btn btn"  >Add to Cart</button>
               </div>
             </div>
            `;
@@ -84,7 +96,9 @@ function getCategories(MealsData) {
 
 
 
-function filterMealsByCategory(Meals, e ) {
+function filterMealsByCategory(Meals, e ) { 
+
+   e.preventDefault(); 
  
   let filterTypeTarget = e.target.textContent.trim()
 
@@ -116,4 +130,147 @@ function filterMealsByCategory(Meals, e ) {
 
  
 }
+
+
+
+// helper function 
+
+function getCartStorage() {
+  return  JSON.parse(localStorage.getItem('Cart'))  ||  []  
+     
+}
+
+
+
+
+function addFoodToCart(foodId){
+
+
+  let  cartItems =  JSON.parse(localStorage.getItem('Cart'))  ||  []  
+
+
+  let selectedItem = allMeals.find( meal => meal.id == foodId  ) 
+
+  console.log(selectedItem);
+  
+  cartItems.push({...selectedItem , quantity : 1  }) 
+  
+  // store cart 
+  localStorage.setItem('Cart',JSON.stringify(cartItems))
+
+
+  updateCart() 
+
+
+}
+
+
+const cartList = document.getElementById('cart-list') 
+console.log(cartList);
+
+
+
+function updateCart() {
+
+  let  cartItems =  JSON.parse(localStorage.getItem('Cart'))  ||  []  
+
+
+  let cartProducts = cartItems.map(item => {
+
+    let {category , id , image , orginalPrice , quantity , title}  = item 
+
+ 
+  
+    return `  
+        <div class="food-item" data-id =${id}  >
+          <i class="fa-solid fa-trash-alt trash-icon "></i>
+            <img src=${image} alt=${title}> 
+            <div class="info">
+              <h3 title=${title}  > ${title} </h3>
+              <p>$${orginalPrice}</p>
+            </div> 
+            <div class="quantity-btns" > 
+              <a  class="quantity-btn" href=""> + </a> 
+              <span> ${quantity} </span>
+              <a  class="quantity-btn" href="">-</a>
+            </div>
+          </div> 
+    `
+  } )
+
+  cartProducts = cartProducts.join('\n') 
+
+  cartList.innerHTML = cartProducts
+
+  cartFoodNumber.textContent = cartItems.length
+
+
+
+}
+
+
+
+
+  // catch btn clicked event delegation 
+// one listener for all add-to-cart buttons 
+foodContainerMeals.addEventListener('click', (e) => {
+  
+  const btn = e.target.closest('.add-to-cart-btn');
+   
+  if (!btn) return; // click not on btn an add button (img text etc ... )
+
+  // const card = btn.closest('.food-card');
+  const card = e.target.closest('.food-card') 
+  console.log(card); 
+
+  if (!card) return;
+
+  const id = card.dataset.id; 
+ 
+  addFoodToCart(id);  
+
+  btn.classList.add('in-cart') 
+  btn.textContent = 'item in cart' 
+  
+});
+
+
+
+
+
+// catch btn trash to remove from cart 
+
+cartList.addEventListener('click' , e => { 
+ 
+
+    let  trashbtn = e.target.closest('.trash-icon') 
+    if (!trashbtn) return 
+
+    const cardItem = e.target.closest('.food-item') 
+    if (!cardItem) return
+
+    // console.log(cardItem);
+    
+
+   let cardId =  cardItem.dataset.id 
+  //  console.log(cardId) ; 
+
+  
+   //  remove from cart 
+  let cartStorage = getCartStorage()  
+
+  
+  cartStorage = cartStorage.filter(item => item.id !== cardId);
+
+  localStorage.setItem('Cart', JSON.stringify(cartStorage));
+
+  updateCart() 
+   
+    
+})
+
+
+
+
+
 
