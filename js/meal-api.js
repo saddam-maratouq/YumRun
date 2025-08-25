@@ -1,19 +1,17 @@
 const foodContainerMeals = document.getElementById("foodMenu");
 const categoryContent = document.getElementById("categoryContent");
-let priceCounter = 19
+let priceCounter = 19;
 
-let cartFoodNumber = document.getElementById('numOfFood') 
-console.log(cartFoodNumber);
+let cartFoodNumber = document.getElementById("numOfFood");
 
+let clickedBtnAddToCart = false;
 
-
-// to show cart when refresh 
-window.addEventListener('DOMContentLoaded', () => {
+// to show cart when refresh
+window.addEventListener("DOMContentLoaded", () => {
   // your code here
-    updateCart() 
+  updateCart();
+  // restoreCartButtons()
 });
-
-
 
 const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 let allMeals = [];
@@ -25,13 +23,13 @@ async function getAllMealsByLetters() {
         `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`
       );
       const json = await res.json();
-      if (json.meals) { 
+      if (json.meals) {
         const simplified = json.meals.map((meal) => ({
           id: meal.idMeal,
           title: meal.strMeal,
           category: meal.strCategory,
           image: meal.strMealThumb,
-          orginalPrice : (priceCounter += (30 / 100)).toFixed(2) 
+          orginalPrice: (priceCounter += 30 / 100).toFixed(2),
         }));
         allMeals = allMeals.concat(simplified);
       }
@@ -41,22 +39,26 @@ async function getAllMealsByLetters() {
   console.log("Total meals fetched:", allMeals.length);
   //   console.table(allMeals);
 
-  showAllMeal(allMeals);
+  showAllMeal(allMeals, clickedBtnAddToCart);
   getCategories(allMeals);
-
 }
-
 
 getAllMealsByLetters();
 
 // get all meals
-function showAllMeal(MealsData) { 
-  
-  let MealsFetched = MealsData.map((item , index ) => { 
+function showAllMeal(MealsData, clikedAddToCart) {
+  let MealsFetched = MealsData.map((item, index) => {
+    let { id, title, category, image, orginalPrice } = item;
 
-    let { id, title, category, image , orginalPrice  } = item;
+    const cart = getCartStorage();
 
+    let inCart = cart.some((item) => String(item.id) === String(id));
+      //  return cart.some(item => String(item.id) === String(id));
+    console.log(inCart);
 
+    const btnClass = inCart ? "add-to-cart-btn btn in-cart"  : "add-to-cart-btn btn"; 
+     
+    const btnText = inCart ? "Item in cart" : "Add to Cart";
 
     return ` <div class="food-card"  data-id=${id} >
               <div class="food-image">
@@ -67,25 +69,25 @@ function showAllMeal(MealsData) {
                 <p class="price"> $ ${orginalPrice}</p>
               </div>
               <div class="add-to-cart">
-                <button type='button' class="add-to-cart-btn btn"  >Add to Cart</button>
+              <button type="button" class="${btnClass}">${btnText}</button>
               </div>
             </div>
            `;
   });
+
+  // class="  ${isCart} ?  add-to-cart-btn btn" :  add-to-cart-btn btn
 
   MealsFetched = MealsFetched.join("\n");
 
   foodContainerMeals.innerHTML = MealsFetched;
 }
 
-
 function getCategories(MealsData) {
   let uniqueCategory = [...new Set(MealsData.map((meal) => meal.category))];
 
   // console.log(uniqueCategory);
 
-  let categoryFiltered = uniqueCategory.map((categoryType) => { 
-
+  let categoryFiltered = uniqueCategory.map((categoryType) => {
     return `  <span class="btn" onclick="filterMealsByCategory(allMeals,event)" >${categoryType}</span> `;
   });
 
@@ -94,20 +96,28 @@ function getCategories(MealsData) {
   categoryContent.innerHTML = categoryFiltered;
 }
 
+function filterMealsByCategory(Meals, e) {
+  e.preventDefault();
+
+  let filterTypeTarget = e.target.textContent.trim();
+
+  let filteredFood = Meals.filter((meal) => meal.category === filterTypeTarget);
+
+  let foodAfterFilter = filteredFood.map((food) => { 
+
+       const cart = getCartStorage();
+
+    let inCart = cart.some((item) => String(item.id) === String(food.id));
+      //  return cart.some(item => String(item.id) === String(id));
+    console.log(inCart);
+
+    const btnClass = inCart ? "add-to-cart-btn btn in-cart"  : "add-to-cart-btn btn"; 
+     
+    const btnText = inCart ? "Item in cart" : "Add to Cart";
 
 
-function filterMealsByCategory(Meals, e ) { 
 
-   e.preventDefault(); 
- 
-  let filterTypeTarget = e.target.textContent.trim()
-
-  let filteredFood = Meals.filter( meal =>  meal.category === filterTypeTarget )
-  
-  
-  let foodAfterFilter =  filteredFood.map( food => {
-
-      return ` <div class="food-card"   data-id=${food.id} >
+    return ` <div class="food-card"   data-id=${food.id} >
               <div class="food-image">
                 <img src=${food.image} alt="${food.title}" />
               </div>
@@ -116,71 +126,64 @@ function filterMealsByCategory(Meals, e ) {
                 <p class="price"> $ ${food.orginalPrice}</p>
               </div>
               <div class="add-to-cart">
-                <button class="add-to-cart-btn btn">Add to Cart</button>
+              <button type="button" class="${btnClass}">${btnText}</button>
               </div>
             </div>
            `;
+  });
 
-  })
+  foodAfterFilter = foodAfterFilter.join("\n");
 
-
-  foodAfterFilter = foodAfterFilter.join('\n') 
-
-  foodContainerMeals.innerHTML = foodAfterFilter
-
- 
+  foodContainerMeals.innerHTML = foodAfterFilter; 
 }
 
-
-
-// helper function 
+// helper function
 
 function getCartStorage() {
-  return  JSON.parse(localStorage.getItem('Cart'))  ||  []  
-     
+  return JSON.parse(localStorage.getItem("Cart")) || [];
 }
 
+// restore item added to cart btn state
+// function restoreCartButtons() {
+//   let cartItems = JSON.parse(localStorage.getItem('Cart')) || [];
 
+//   cartItems.forEach(item => {
+//     const card = document.querySelector(`.food-card[data-id="${item.id}"]`);
+//     if (card) {
+//       const btn = card.querySelector('.add-to-cart-btn');
+//       if (btn) {
+//         btn.classList.add('in-cart');
+//         btn.textContent = 'Item in Cart';
+//       }
+//     }
+//   });
+// }
 
+function addFoodToCart(foodId) {
+  // clickedBtnAddToCart = true
 
-function addFoodToCart(foodId){
+  let cartItems = JSON.parse(localStorage.getItem("Cart")) || [];
 
+  let selectedItem = allMeals.find((meal) => meal.id == foodId);
 
-  let  cartItems =  JSON.parse(localStorage.getItem('Cart'))  ||  []  
+  // console.log(selectedItem);
 
+  cartItems.push({ ...selectedItem, quantity: 1 });
 
-  let selectedItem = allMeals.find( meal => meal.id == foodId  ) 
+  // store cart
+  localStorage.setItem("Cart", JSON.stringify(cartItems));
 
-  console.log(selectedItem);
-  
-  cartItems.push({...selectedItem , quantity : 1  }) 
-  
-  // store cart 
-  localStorage.setItem('Cart',JSON.stringify(cartItems))
-
-
-  updateCart() 
-
-
+  updateCart();
 }
 
-
-const cartList = document.getElementById('cart-list') 
-console.log(cartList);
-
-
+const cartList = document.getElementById("cart-list");
 
 function updateCart() {
+  let cartItems = JSON.parse(localStorage.getItem("Cart")) || [];
 
-  let  cartItems =  JSON.parse(localStorage.getItem('Cart'))  ||  []  
+  let cartProducts = cartItems.map((item) => {
+    let { category, id, image, orginalPrice, quantity, title } = item;
 
-
-  let cartProducts = cartItems.map(item => {
-
-    let {category , id , image , orginalPrice , quantity , title}  = item 
-
- 
-  
     return `  
         <div class="food-item" data-id =${id}  >
           <i class="fa-solid fa-trash-alt trash-icon "></i>
@@ -195,97 +198,71 @@ function updateCart() {
               <a  class="quantity-btn" href="">-</a>
             </div>
           </div> 
-    `
-  } )
+    `;
+  });
 
-  cartProducts = cartProducts.join('\n') 
+  cartProducts = cartProducts.join("\n");
 
-  cartList.innerHTML = cartProducts
+  cartList.innerHTML = cartProducts;
 
-  cartFoodNumber.textContent = cartItems.length
+  cartFoodNumber.textContent = cartItems.length;
 
-
-
+  // restoreCartButtons()
 }
 
+// catch btn clicked
+// one listener for all add-to-cart buttons
+foodContainerMeals.addEventListener("click", (e) => {
+  const btn = e.target.closest(".add-to-cart-btn");
 
-
-
-  // catch btn clicked event delegation 
-// one listener for all add-to-cart buttons 
-foodContainerMeals.addEventListener('click', (e) => {
-  
-  const btn = e.target.closest('.add-to-cart-btn');
-   
   if (!btn) return; // click not on btn an add button (img text etc ... )
 
   // const card = btn.closest('.food-card');
-  const card = e.target.closest('.food-card') 
-  console.log(card); 
+  const card = e.target.closest(".food-card");
+  // console.log(card);
 
   if (!card) return;
 
-  const id = card.dataset.id; 
- 
-  addFoodToCart(id);  
+  const id = card.dataset.id;
 
-  btn.classList.add('in-cart') 
-  btn.textContent = 'Item in cart' 
-  
+  addFoodToCart(id);
+
+  btn.classList.add("in-cart");
+  btn.textContent = "Item in cart";
 });
 
+// catch btn trash to remove from cart
+cartList.addEventListener("click", (e) => {
+  let trashbtn = e.target.closest(".trash-icon");
+  if (!trashbtn) return;
 
+  const cardItem = e.target.closest(".food-item");
+  if (!cardItem) return;
 
+  let cardId = cardItem.dataset.id;
 
+  clickedBtnAddToCart = false;
+  //  remove from cart
+  let cartStorage = getCartStorage();
 
-// catch btn trash to remove from cart 
+  cartStorage = cartStorage.filter((item) => item.id !== cardId);
 
-cartList.addEventListener('click' , e => { 
- 
+  localStorage.setItem("Cart", JSON.stringify(cartStorage));
 
-    let  trashbtn = e.target.closest('.trash-icon') 
-    if (!trashbtn) return 
+  updateCart();
 
-    const cardItem = e.target.closest('.food-item') 
-    if (!cardItem) return
-
-  
-   let cardId =  cardItem.dataset.id 
- 
-
-  
-   //  remove from cart 
-  let cartStorage = getCartStorage()  
-
-  
-  cartStorage = cartStorage.filter(item => item.id !== cardId);
-
-  localStorage.setItem('Cart', JSON.stringify(cartStorage));
-
-  updateCart()   
-
-
-  // reset add to cart btn after delete from cart 
-   const card = document.querySelector(`.food-card[data-id="${cardId}"]`);
+  // reset add to cart btn after delete from cart
+  const card = document.querySelector(`.food-card[data-id="${cardId}"]`);
   //  console.log('card is ' , card);
-   
-    if (card) {
-    const btn = card.querySelector('.add-to-cart-btn');
-      console.log(btn); 
-    
+
+  if (card) {
+    const btn = card.querySelector(".add-to-cart-btn");
 
     if (btn) {
-      btn.classList.remove('in-cart') 
-      btn.textContent = 'Add to cart' 
+      btn.classList.remove("in-cart");
+      btn.textContent = "Add to cart";
     }
+  }
 
-  } 
-  
-    
-})
-
-
-
-
-
-
+  // updateClikedStatus()
+});
