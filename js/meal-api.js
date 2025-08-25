@@ -230,7 +230,7 @@ foodContainerMeals.addEventListener('click', (e) => {
   addFoodToCart(id);  
 
   btn.classList.add('in-cart') 
-  btn.textContent = 'item in cart' 
+  btn.textContent = 'Item in cart' 
   
 });
 
@@ -249,11 +249,9 @@ cartList.addEventListener('click' , e => {
     const cardItem = e.target.closest('.food-item') 
     if (!cardItem) return
 
-    // console.log(cardItem);
-    
-
+  
    let cardId =  cardItem.dataset.id 
-  //  console.log(cardId) ; 
+ 
 
   
    //  remove from cart 
@@ -264,8 +262,25 @@ cartList.addEventListener('click' , e => {
 
   localStorage.setItem('Cart', JSON.stringify(cartStorage));
 
-  updateCart() 
+  updateCart()   
+
+
+  // reset add to cart btn after delete from cart 
+   const card = document.querySelector(`.food-card[data-id="${cardId}"]`);
+  //  console.log('card is ' , card);
    
+    if (card) {
+    const btn = card.querySelector('.add-to-cart-btn');
+      console.log(btn); 
+    
+
+    if (btn) {
+      btn.classList.remove('in-cart') 
+      btn.textContent = 'Add to cart' 
+    }
+
+  } 
+  
     
 })
 
