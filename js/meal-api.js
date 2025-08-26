@@ -4,7 +4,6 @@ let priceCounter = 19;
 
 let cartFoodNumber = document.getElementById("numOfFood");
 
-let clickedBtnAddToCart = false;
 
 // to show cart when refresh
 window.addEventListener("DOMContentLoaded", () => {
@@ -39,14 +38,14 @@ async function getAllMealsByLetters() {
   console.log("Total meals fetched:", allMeals.length);
   //   console.table(allMeals);
 
-  showAllMeal(allMeals, clickedBtnAddToCart);
+  showAllMeal(allMeals);
   getCategories(allMeals);
 }
 
 getAllMealsByLetters();
 
 // get all meals
-function showAllMeal(MealsData, clikedAddToCart) {
+function showAllMeal(MealsData) {
   let MealsFetched = MealsData.map((item, index) => {
     let { id, title, category, image, orginalPrice } = item;
 
@@ -160,7 +159,7 @@ function getCartStorage() {
 // }
 
 function addFoodToCart(foodId) {
-  // clickedBtnAddToCart = true
+ 
 
   let cartItems = JSON.parse(localStorage.getItem("Cart")) || [];
 
@@ -177,12 +176,29 @@ function addFoodToCart(foodId) {
 }
 
 const cartList = document.getElementById("cart-list");
+const totalPrice = document.getElementById('cartTotal')
 
-function updateCart() {
+
+
+
+function updateCart() { 
+
   let cartItems = JSON.parse(localStorage.getItem("Cart")) || [];
 
-  let cartProducts = cartItems.map((item) => {
-    let { category, id, image, orginalPrice, quantity, title } = item;
+   let total = 0 ;
+
+  let cartProducts = cartItems.map((item,index) => {
+    let { category, id, image, orginalPrice, quantity, title  } = item;
+
+    let subTotalItem = Math.floor(orginalPrice * quantity * 100) / 100; 
+
+   
+     total += subTotalItem 
+    //  console.log( typeof total);
+     
+         
+     totalPrice.textContent = `$${total.toFixed(2)}` 
+     
 
     return `  
         <div class="food-item" data-id =${id}  >
@@ -190,15 +206,14 @@ function updateCart() {
             <img src=${image} alt=${title}> 
             <div class="info">
               <h3 title=${title}  > ${title} </h3>
-              <p>$${orginalPrice}</p>
+              <p>$${subTotalItem}</p>
             </div> 
             <div class="quantity-btns" > 
-              <a  class="quantity-btn" href=""> + </a> 
+              <a  onclick='increseQuantity(${index})'  class="quantity-btn" href="#"> + </a> 
               <span> ${quantity} </span>
-              <a  class="quantity-btn" href="">-</a>
+              <a   onclick='decreseQuantity(${index})' class="quantity-btn" href="#">-</a>
             </div>
-          </div> 
-    `;
+          </div> `; 
   });
 
   cartProducts = cartProducts.join("\n");
@@ -209,6 +224,28 @@ function updateCart() {
 
   // restoreCartButtons()
 }
+
+
+function increseQuantity(index) { 
+    const cart = getCartStorage() 
+    cart[index].quantity += 1 ; 
+    localStorage.setItem('Cart',JSON.stringify(cart)) 
+    updateCart() 
+
+}
+
+
+function decreseQuantity(index) { 
+    const cart = getCartStorage() 
+    if (cart[index].quantity > 1 ) {
+      cart[index].quantity -= 1 ; 
+    }
+    localStorage.setItem('Cart',JSON.stringify(cart)) 
+    updateCart() 
+}
+
+
+
 
 // catch btn clicked
 // one listener for all add-to-cart buttons
@@ -241,7 +278,6 @@ cartList.addEventListener("click", (e) => {
 
   let cardId = cardItem.dataset.id;
 
-  clickedBtnAddToCart = false;
   //  remove from cart
   let cartStorage = getCartStorage();
 
@@ -266,3 +302,5 @@ cartList.addEventListener("click", (e) => {
 
   // updateClikedStatus()
 });
+
+

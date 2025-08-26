@@ -1223,7 +1223,7 @@ height: 73dvh;
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  height: 1000px;
+  height: 942px;
   overflow: scroll;
 }
 
