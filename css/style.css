@@ -661,16 +661,16 @@ nav ul li a:hover {
 /* Cart Modal */
 
 .cart-popup {
-height: 73dvh;
-    background-color: var(--website-bg-color);
-    width: 480px;
-    position: absolute;
-    top: 113px;
-    right: 0;
-    z-index: 100;
-    padding: 0 0 10px 0;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    display: none;
+  height: 73dvh;
+  background-color: var(--website-bg-color);
+  width: 480px;
+  position: absolute;
+  top: 113px;
+  right: 0;
+  z-index: 100;
+  padding: 0 0 10px 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  display: none;
 }
 
 .cart-popup.cart-active {
@@ -1223,7 +1223,7 @@ height: 73dvh;
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  height: 942px;
+  height: 1023px;
   overflow: scroll;
 }
 
@@ -1263,15 +1263,12 @@ height: 73dvh;
   margin-top: 10px;
 }
 
-
-.food-card .add-to-cart-btn.in-cart{
-    pointer-events: none;
-    background-color: transparent;
-    color: var(--website-text-color);
-    border: 2px solid var(--main-color);
+.food-card .add-to-cart-btn.in-cart {
+  pointer-events: none;
+  background-color: transparent;
+  color: var(--website-text-color);
+  border: 2px solid var(--main-color);
 }
-
-
 
 /*=================== end  our Menu ====================== */
 
@@ -1364,10 +1361,8 @@ height: 73dvh;
 }
 
 .subscripe-section .container {
-  background-image: url("../imgs/project-images19.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-image: url("../imgs/project-images19.jpg"); */
+  background: url("../imgs/bg-signup.avif") no-repeat center center/cover;
   min-width: 100%;
   min-height: 50dvh;
   display: flex;
@@ -1414,7 +1409,8 @@ height: 73dvh;
 }
 
 .subscripe-content button {
-  background: #ffc527 none repeat scroll 0 0;
+  /* background: #ffc527 none repeat scroll 0 0; */
+  background: var(--main-color);
   border: medium none transparent;
   border-radius: 100px;
   color: #fff;
@@ -1423,6 +1419,8 @@ height: 73dvh;
   padding: 12px 30px;
   margin-right: 10px;
   cursor: pointer;
+  text-align: center;
+  width: 160px;
 }
 
 .subscripe-content input {
@@ -1452,6 +1450,7 @@ height: 73dvh;
 .team-section {
   background-color: var(--website-bg-color);
   padding: var(--section-padding) 0;
+  padding: 100px 0;
 }
 
 .team-section .container {
@@ -1497,17 +1496,16 @@ height: 73dvh;
 .img-container .social-media-links {
   position: absolute;
   background: rgba(20, 20, 20, 0.7) none repeat scroll 0 0;
-  top: 0;
+  bottom: 10px;
   left: 0;
   width: 100%;
-  height: 97.5%;
+  height: 33.5%;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: var(--transtion-speed);
   opacity: 0;
-  --webkit-transform: scale(0);
 }
 
 .img-container:hover .social-media-links {
