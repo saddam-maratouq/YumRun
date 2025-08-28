@@ -16,6 +16,7 @@ const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 let allMeals = [];
 
 async function getAllMealsByLetters() {
+ 
   await Promise.all(
     letters.map(async (letter) => {
       const res = await fetch(
@@ -36,16 +37,17 @@ async function getAllMealsByLetters() {
   );
 
   console.log("Total meals fetched:", allMeals.length);
-  //   console.table(allMeals);
+    console.log(allMeals);
 
   showAllMeal(allMeals);
   getCategories(allMeals);
 }
 
-getAllMealsByLetters();
+getAllMealsByLetters(); 
 
 // get all meals
-function showAllMeal(MealsData) {
+function showAllMeal(MealsData) {  
+  
   let MealsFetched = MealsData.map((item, index) => {
     let { id, title, category, image, orginalPrice } = item;
 
@@ -87,13 +89,41 @@ function getCategories(MealsData) {
   // console.log(uniqueCategory);
 
   let categoryFiltered = uniqueCategory.map((categoryType) => {
-    return `  <span class="btn" onclick="filterMealsByCategory(allMeals,event)" >${categoryType}</span> `;
+    return `  <span class="btn btn-category "  id='btn-filter' onclick="filterMealsByCategory(allMeals,event)" >${categoryType}</span> `;
   });
 
   categoryFiltered = categoryFiltered.join("\n");
 
-  categoryContent.innerHTML = categoryFiltered;
+  categoryContent.innerHTML = categoryFiltered; 
+
+
+  // active btn filter 
+
+let btnElments = document.querySelectorAll("#btn-filter");
+console.log( 'btn filter is '  ,btnElments);
+
+
+
+btnElments.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // find first elment has this class name in entire dom ...
+    document.querySelector('.btn-category.active')
+    document.querySelector('.btn-category.active')?.classList.remove("active"); // ✅ no error, just skips
+
+    btn.classList.add("active");
+  });
+});
+
+
+//
+
+
+
+
 }
+
+
+
 
 function filterMealsByCategory(Meals, e) {
   e.preventDefault();
@@ -245,8 +275,6 @@ function decreseQuantity(index) {
 }
 
 
-
-
 // catch btn clicked
 // one listener for all add-to-cart buttons
 foodContainerMeals.addEventListener("click", (e) => {
@@ -300,7 +328,8 @@ cartList.addEventListener("click", (e) => {
     }
   }
 
-  // updateClikedStatus()
+
 });
+
 
 

@@ -1216,7 +1216,13 @@ nav ul li a:hover {
 }
 
 .category-content span.active {
-  background-color: var(--hover-btn);
+  /* background-color: var(--hover-btn); */
+  background-color: #181818;
+}
+
+body.dark-mode .category-content span.active {
+  background-color: #fcf1cc;
+  color: #181818;
 }
 
 .foods-card {
@@ -1233,6 +1239,7 @@ nav ul li a:hover {
   border-radius: 5px;
   /* padding: 30px 0; */
   padding: 0 0 20px;
+  height: 455px;
 }
 
 .food-card .food-image {
@@ -1248,9 +1255,9 @@ nav ul li a:hover {
 }
 
 .food-card .food-details h3 {
-  font-size: 25px;
+  font-size: 20px;
   color: var(--website-text-color);
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .food-card .food-details p {
@@ -1350,9 +1357,148 @@ nav ul li a:hover {
   background-color: var(--section-bg-color);
 }
 
-/*=================== start  who we are ====================== */
+/*=================== start testmonial  ====================== */
 
-/*=================== End who we are ====================== */
+.test-monial-sec {
+  padding: var(--section-padding);
+  background-color: var(--website-bg-color);
+}
+
+.test-monial-sec .container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  column-gap: 40px;
+  flex-wrap: wrap;
+}
+
+.testmonial-img {
+  width: 700px;
+}
+
+.testmonial-img img {
+  max-width: 100%;
+}
+
+.right-testmonial-content {
+  /* flex: 1; */
+  /* flex: 1 1 400px; allow shrink and minimum width */
+}
+
+.right-testmonial-content .title-content {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.right-testmonial-content > div p {
+  font-size: 20px;
+  color: var(--main-color);
+  margin: 50px 0 20px;
+  font-weight: 600;
+}
+
+.right-testmonial-content > div h2 {
+  color: var(--website-text-color);
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.slider-rateing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slider-rateing img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* margin-right: 20px; */
+      margin-bottom: 5px;
+
+}
+
+.slider-info {
+  line-height: 30px;
+}
+
+.slider-info h4 {
+  font-size: 25px;
+  color: var(--website-text-color);
+}
+
+.slider-info .fa-star {
+  color: var(--main-color);
+}
+
+.swiper-slide .review-txt {
+  color: var(--website-text-color) !important;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+.mySwiper .fa-arrow-right,
+.mySwiper .fa-arrow-left {
+  color: var(--website-text-color);
+  width: 40px;
+  height: 40px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.mySwiper .fa-arrow-right {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+
+.swiper {
+  width: 600px;
+  height: max-content;
+}
+
+.swiper-slide {
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  /* background: #eee; */
+  display: flex;
+  flex-direction: column;
+}
+/* over right swiper */
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-family: swiper-icons;
+  font-size: var(--swiper-navigation-size);
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+  position: absolute;
+  top: -80px;
+  font-size: 30px;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  background-color: var(--main-color);
+}
+
+/*  */
+
+/*=================== End test monial  ====================== */
 
 /* Start Subscripe News  */
 
@@ -1362,7 +1508,7 @@ nav ul li a:hover {
 
 .subscripe-section .container {
   /* background-image: url("../imgs/project-images19.jpg"); */
-  background: url("../imgs/bg-signup.avif") no-repeat center center/cover;
+  background: url("../imgs/bg-newsLetter.jpg") no-repeat center center/cover;
   min-width: 100%;
   min-height: 50dvh;
   display: flex;

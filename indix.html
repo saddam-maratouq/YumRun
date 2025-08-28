@@ -32,8 +32,6 @@
       rel="stylesheet"
     />
 
-
-
     <!-- font awsome cdn  -->
     <link
       rel="stylesheet"
@@ -44,37 +42,46 @@
     />
 
     <!-- owl css -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
       integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+    /> -->
+
+    <!-- reset css  Normalize -->
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <!-- Swiper css  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
     <!-- link css -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- reset css  Normalize -->
-    <link rel="stylesheet" href="css/reset.css" />
-
-    <!-- External Main js  -->
+    <!-- External Main js jquery -->
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
+
     <!-- OwlCarousel  -->
-    <script
+    <!-- <script
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
       integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script> 
+    ></script>  -->
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
 
     <!-- local js file  -->
-    <script defer src="./main.js"></script>  
-    <script defer src="./js/meal-api.js"></script>
-
-
+    <script defer src="./main.js"></script>
+    <script  defer  src="./js/meal-api.js"></script>
   </head>
 
   <body id="body">
@@ -115,10 +122,15 @@
         </nav>
 
         <div class="nav-right">
-          <a  href="#" onclick="showCartItems()"  class="cart-content" id="cartContent" >
+          <a
+            href=""
+            onclick="showCartItems()"
+            class="cart-content"
+            id="cartContent"
+          >
             <!-- <i class="fa-solid fa-cart-shopping"></i> -->
             <i class="fa fa-shopping-bag"></i>
-            <span id="numOfFood" > 1 </span>
+            <span id="numOfFood"> 1 </span>
           </a>
 
           <button onclick="tougleMoonSunIcon()" class="swith-icon">
@@ -204,27 +216,28 @@
               <button class="btn-submit" type="submit">Submit</button>
             </form>
           </div>
-        </div> 
+        </div>
 
-      
-      <!-- Cart Pop up  -->
-        <div class="cart-popup" id="cartPopup" >
-          <p class="cart-title" > Your Cart  
-              <i  onclick="hideCartItems()" class="fa-solid fa-xmark"  title="close cart " ></i>  
-          </p>   
-          <div class="cart-list"  id="cart-list" > 
-        <!-- item 1  -->
-
+        <!-- Cart Pop up  -->
+        <div class="cart-popup" id="cartPopup">
+          <p class="cart-title">
+            Your Cart
+            <i
+              onclick="hideCartItems()"
+              class="fa-solid fa-xmark"
+              title="close cart "
+            ></i>
+          </p>
+          <div class="cart-list" id="cart-list">
+            <!-- item 1  -->
           </div>
 
-          <h4 class="price-total" > total : <span id="cartTotal" > $ </span> </h4>
+          <h4 class="price-total">total : <span id="cartTotal"> $ </span></h4>
 
-          <button class="pay-btn btn" > Pay Now </button>
-
+          <button class="pay-btn btn">Pay Now</button>
         </div>
 
         <!--  -->
-
       </div>
     </header>
 
@@ -319,7 +332,7 @@
         </div>
         <!-- pop up video -->
         <div class="video-popUp" id="videoContent">
-          <iframe
+          <!-- <iframe
             src="https://www.youtube.com/embed/xPPLbEFbCAo?autoplay=1&mute=1&modestbranding=1&rel=0&showinfo=0&loop=1&playlist=xPPLbEFbCAo"
             title="YouTube video player"
             frameborder="0"
@@ -328,7 +341,7 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           >
-          </iframe>
+          </iframe> -->
           <i
             onclick="closeVideoPopUp()"
             title="close video"
@@ -338,7 +351,7 @@
       </section>
       <!--  -->
 
-    <!--Services-->
+      <!--Services-->
       <section id="services" class="services">
         <div class="titles-content">
           <!-- make animation -->
@@ -389,15 +402,11 @@
             name=""
             id="searchMeal"
             placeholder="🔍 Search 300+ meals from around the world..."
-          /> 
+          />
 
-          <div class="category-content"  id="categoryContent" >
+          <div class="category-content" id="categoryContent"></div>
 
-          </div>  
-
-
-          <div class="foods-card" id="foodMenu"  > 
-
+          <div class="foods-card" id="foodMenu">
             <!-- Chicken Roll
             <div class="food-card" >
               <div class="food-image">
@@ -411,8 +420,7 @@
                 <button class="add-to-cart-btn btn ">Add to Cart</button>
               </div>
             </div>   -->
-            <!--  -->  
-
+            <!--  -->
           </div>
         </div>
       </section>
@@ -445,6 +453,105 @@
       </section>
       <!-- End our App -->
 
+      <!-- testimonial   -->
+      <section class="test-monial-sec">
+        <div class="container">
+          <div class="testmonial-img">
+            <img src="./imgs/delivery-boy-with-phone.png" alt="" />
+          </div>
+
+          <div class="right-testmonial-content">
+            <div class="title-content">
+              <p>OUR REVIEW</p>
+              <h2>What They Say ?</h2>
+            </div>
+
+            <!-- swiper -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <!-- slide 1  -->
+                <div class="swiper-slide">
+                  <div class="slider-rateing">
+                    <img src="./imgs/profile1.jpeg" alt="person" />
+
+                    <div class="slider-info">
+                      <h4>Joun Anderson</h4>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+
+                  <p class="review-txt">
+                    Foodie is the best. Besides the many delicious meals, the
+                    service is also very good, especially very fast delivery. I
+                    highly recommend Foodie to you.
+                  </p>
+                </div>
+                <!-- slide 2  -->
+                <div class="swiper-slide">
+                  <div class="slider-rateing">
+                    <img src="./imgs/profile2.jpeg" alt="person" />
+
+                    <div class="slider-info">
+                      <h4>Sophia Miller</h4>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+
+                  <p class="review-txt">
+                    Foodie has been wonderful. Along with the variety of tasty
+                    meals, the service is always polite, and delivery comes
+                    right on time. I strongly recommend Foodie to everyone
+                    searching for quality and delicious food daily.
+                  </p>
+                </div>
+                <!-- slide 3  -->
+                <div class="swiper-slide">
+                  <div class="slider-rateing">
+                    <img src="./imgs/profile3.jpeg" alt="person" />
+
+                    <div class="slider-info">
+                      <h4>Emily Johnson</h4>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                  <p class="review-txt">
+                    The service is truly amazing. Meals always arrive fresh,
+                    hot, and perfectly prepared, making dinner so much easier.
+                    Delivery is quick, and the team is very professional. I
+                    strongly recommend this service to anyone who loves great
+                    food.
+                  </p>
+                </div>
+              </div>
+
+              <a href="" class="next-icon">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+
+              <a href="" class="prev-icon">
+                <i class="fas fa-arrow-left"></i>
+              </a>
+
+              <!-- <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div> -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Start subscribe News  -->
       <div class="subscripe-section" id="subscripe">
         <div class="container">
@@ -458,7 +565,7 @@
           </div>
 
           <div class="subscripe-content">
-            <button class="btn" >Subscripe</button>
+            <button class="btn">Subscripe</button>
             <input type="email" name="" id="" placeholder="name@example.com" />
           </div>
         </div>
@@ -467,7 +574,7 @@
 
       <!-- Strat Team section -->
       <div class="team-section" id="team">
-            <div class="titles-content">
+        <div class="titles-content">
           <!-- make animation -->
           <p class="sub-title">About us</p>
           <h1 class="title">Meet Our Team</h1>
@@ -501,8 +608,8 @@
                 <i class="fa-brands fa-reddit-alien"></i>
               </div>
             </div>
-          <h4>Olivia Parker</h4>
-          <p>Restaurant Manager</p>
+            <h4>Olivia Parker</h4>
+            <p>Restaurant Manager</p>
           </div>
           <!--  -->
 
@@ -525,7 +632,6 @@
       </div>
       <!-- End Team section -->
     </main>
-
 
     <footer>
       <div class="container">

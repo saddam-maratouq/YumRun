@@ -1,5 +1,12 @@
 // Start preloader //
 
+
+
+
+
+
+
+
 let loadingPage = document.getElementById("loading");
 
 function getLoading() {
@@ -73,34 +80,6 @@ linkElments.forEach((link) => {
 });
 
 
-//
-
-// Text Animation script
-
-// let  textWrapper = document.querySelector('.title');
-// textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-// anime.timeline({loop: true})
-//   .add({
-//     targets: '.title .letter',
-//     scale: [4,1],
-//     opacity: [0,1],
-//     translateZ: 0,
-//     easing: "easeOutExpo",
-//     duration: 950,
-//     delay: (el, i) => 70*i
-//   }).add({
-//     targets: '.title',
-//     opacity: 0,
-//     duration: 1000,
-//     easing: "easeOutExpo",
-//     delay: 2000
-//   });
-
-//
-
-
-
 // Show hide Nav menu //
 
 const navMenu = document.querySelector("nav ul");
@@ -143,30 +122,20 @@ function showModal(displayMode) {
 
 //
 
+// show hide cart list
 
-// show hide cart list 
-
-const cartPopUp = document.getElementById('cartPopup') 
-const cartContent = document.getElementById('cartContent')
-
-
+const cartPopUp = document.getElementById("cartPopup");
+const cartContent = document.getElementById("cartContent");
 
 function showCartItems() {
-    cartPopUp.classList.add('cart-active')
+  cartPopUp.classList.add("cart-active");
 }
-
 
 function hideCartItems() {
-    cartPopUp.classList.remove('cart-active')
+  cartPopUp.classList.remove("cart-active");
 }
 
-
-
-// 
-
-
-
-
+//
 
 // show hide video pop up
 
@@ -184,6 +153,42 @@ function closeVideoPopUp(params) {
 }
 
 // End pop up video show hide
+
+
+
+// swiper js 
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+ 
+  loop: true,
+
+   // Autoplay
+  autoplay: {
+    delay: 3000,       // time between slides (ms) -> 3 seconds
+    disableOnInteraction: false, // keep autoplay even after user interaction
+  },
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.next-icon',
+    prevEl: '.prev-icon',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+//  
+
+
 
 // // Owl  Carsoul
 
