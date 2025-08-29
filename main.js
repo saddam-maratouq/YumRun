@@ -156,6 +156,47 @@ function closeVideoPopUp(params) {
 
 
 
+
+// Animate counter ... 
+
+const countersEl = document.querySelectorAll('[data-title="counter-num"]');
+
+
+
+function counterAnimated() { 
+  let counter = 0 
+
+  let duration = 20000 // 3 sec 
+
+    countersEl.forEach( element => { 
+
+       let endCount = +element.dataset.target 
+       let stepTime = Math.abs(Math.floor(duration / endCount));
+
+        
+       const initervial = setInterval(() => {
+          ++counter 
+
+          element.textContent = counter
+
+          if ( counter >= endCount  ) {
+              clearInterval(initervial)
+          }
+
+       }, stepTime);
+        
+      })
+}
+
+
+counterAnimated()
+
+
+
+
+
+
+
 // swiper js 
 
 const swiper = new Swiper('.swiper', {

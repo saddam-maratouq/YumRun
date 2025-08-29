@@ -364,6 +364,10 @@ header .container {
   font-size: 25px;
 }
 
+.nav-right a {
+  cursor: pointer;
+}
+
 /* Start Mobile Tab media query */
 
 @media (max-width: 991px) {
@@ -1350,6 +1354,73 @@ body.dark-mode .category-content span.active {
 
 /*=================== End  our app ====================== */
 
+/*=================== start client num  ====================== */
+
+.sec-client-num {
+  padding: var(--section-padding);
+  background-color: var(--website-bg-color);
+  background-image: url("../imgs/service-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40dvh;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-attachment: fixed;
+}
+
+.sec-client-num::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #21212170;
+  top: 0;
+}
+
+.sec-client-num .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-around;
+  align-items: center;
+  /* height: 60dvh; */
+  text-align: center;
+  position: relative;
+  width: 1000px;
+}
+ 
+
+@media (max-width: 997px) { 
+
+.sec-client-num {
+  height: 60dvh;
+}
+
+.sec-client-num .container {
+    flex-direction: column;
+  }
+
+
+}
+
+
+
+.counter [data-title=counter-num] {
+  font-size: 48px;
+  color: #fff;
+}
+
+.counter .counter-label {
+  color: #ffffffc4;
+  margin-top: 15px;
+  font-size: 17px;
+}
+
+/*=================== end client num  ====================== */
+
 /* Start News  */
 
 .sec-news {
@@ -1417,8 +1488,7 @@ body.dark-mode .category-content span.active {
   border-radius: 50%;
   object-fit: cover;
   /* margin-right: 20px; */
-      margin-bottom: 5px;
-
+  margin-bottom: 5px;
 }
 
 .slider-info {
@@ -1458,7 +1528,7 @@ body.dark-mode .category-content span.active {
 .mySwiper .fa-arrow-right {
   position: absolute;
   right: 0;
-  bottom: 10px;
+  bottom: 0px;
 }
 
 .swiper {
