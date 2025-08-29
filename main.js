@@ -161,29 +161,35 @@ function closeVideoPopUp(params) {
 
 const countersEl = document.querySelectorAll('[data-title="counter-num"]');
 
-
+  
 
 function counterAnimated() { 
-  let counter = 0 
+
 
   let duration = 20000 // 3 sec 
 
     countersEl.forEach( element => { 
 
-       let endCount = +element.dataset.target 
+      let counter = 0 
+       let endCount = +element.dataset.target  
+       console.log(endCount);
+       
+
        let stepTime = Math.abs(Math.floor(duration / endCount));
 
         
        const initervial = setInterval(() => {
-          ++counter 
+          counter ++ 
 
           element.textContent = counter
 
           if ( counter >= endCount  ) {
               clearInterval(initervial)
           }
+          
 
        }, stepTime);
+       
         
       })
 }
