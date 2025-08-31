@@ -12,7 +12,7 @@ let loadingPage = document.getElementById("loading");
 function getLoading() {
   setTimeout(() => {
     loadingPage.style.display = "none";
-  }, 2000);
+  }, 1000);
 }
 
 getLoading();

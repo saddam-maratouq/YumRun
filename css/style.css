@@ -1246,6 +1246,8 @@ body.dark-mode .category-content span.active {
   /* padding: 30px 0; */
   padding: 0 0 20px;
   height: 455px;
+  height: fit-content;
+
 }
 
 .food-card .food-image {
@@ -1577,6 +1579,8 @@ body.dark-mode .category-content span.active {
 
 .subscripe-section {
   padding: var(--section-padding) 0;
+  padding: 100px 0 ;
+  background-color: var(--website-bg-color);
 }
 
 .subscripe-section .container {
