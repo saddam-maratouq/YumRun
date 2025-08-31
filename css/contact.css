@@ -1,0 +1,134 @@
+.inner-cotact-sec {
+  padding: var(--section-padding);
+  background-color: var(--website-bg-color);
+;
+}
+
+.inner-cotact-sec .titles-content {
+  margin-top: 100px;
+}
+
+.map {
+  margin-bottom: 50px;
+}
+
+.inner-cotact-sec .contact-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.inner-cotact-sec .contact-info .adress-content.shadow-cont {
+  width: 600px;
+  background-color: #fff;
+  border: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+ gap: 20px;
+ flex: 1 0 auto;
+  
+}
+
+.adress-content i {
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  background-color: var;
+  background-color: var(--main-color);
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.adress-info {
+    line-height: 26px;
+}
+
+
+/* form  */ 
+
+
+.contact-form {
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10x;
+  padding: 20px;
+}
+
+
+
+
+ .contact-form input:focus,
+.contact-form textarea:focus-visible 
+  {
+  border: 2px solid var(--main-color) !important;
+  outline: none;
+} 
+
+.form-row input[type='text'] {
+  margin-right: 30px ;
+
+}
+
+
+.contact-form input[type='email'],
+.contact-form input[type='text']
+ {
+  width: 650px;
+  padding: 12px;
+  border: 1px solid #80808063;
+}
+
+.contact-form  .subject-input {
+  width: 100% !important;
+}
+
+.contact-form textarea {
+  width: 100%;
+   border: 1px solid #80808063;
+   margin-bottom: 20px;
+   height: 230px;
+   resize: none;
+   padding: 10px ;
+}
+
+.submit-contact {
+  margin: auto;
+}
+
+.submit-contact  button {
+  width: 180px;
+  padding: 10px 30px;
+}
+
+
+
+@media (max-width: 1404px) {
+
+
+  .contact-form input[type='text'] {
+    margin-bottom: 20px;
+  }
+
+  .contact-form input[type='email'],
+.contact-form input[type='text']
+ {
+  width: 100%;
+ }
+
+}
+
+
+
+/*  */

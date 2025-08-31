@@ -170,7 +170,8 @@ function counterAnimated() {
 
     countersEl.forEach( element => { 
 
-      let counter = 0 
+      let counter = 0  
+
        let endCount = +element.dataset.target  
        console.log(endCount);
        
@@ -179,7 +180,7 @@ function counterAnimated() {
 
         
        const initervial = setInterval(() => {
-          counter ++ 
+          counter++ 
 
           element.textContent = counter
 

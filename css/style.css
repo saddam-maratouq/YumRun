@@ -207,7 +207,7 @@ a {
   left: 0;
   width: 100%;
   min-height: 100dvh;
-  background-color: #ffc527eb;
+  background-color: #fff;
   z-index: 20000;
   display: flex;
   justify-content: center;
@@ -215,13 +215,15 @@ a {
 }
 
 .loader {
-  width: 60px;
+  /* width: 60px;
   aspect-ratio: 4;
   background: radial-gradient(circle closest-side, #666666 90%, #0000) 0 /
     calc(100% / 3) 100% space;
   clip-path: inset(0 100% 0 0);
-  animation: l1 1s steps(4) infinite;
+  animation: l1 1s steps(4) infinite; */
 }
+
+
 
 @keyframes l1 {
   to {
@@ -1414,9 +1416,10 @@ body.dark-mode .category-content span.active {
 }
 
 .counter .counter-label {
-  color: #ffffffc4;
+  color: #ffffffc6;
   margin-top: 15px;
   font-size: 17px;
+  
 }
 
 /*=================== end client num  ====================== */

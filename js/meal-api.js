@@ -5,6 +5,11 @@ let priceCounter = 19;
 let cartFoodNumber = document.getElementById("numOfFood");
 
 
+// make image loading lazy 
+// loading="lazy"
+
+
+
 // to show cart when refresh
 window.addEventListener("DOMContentLoaded", () => {
   // your code here
