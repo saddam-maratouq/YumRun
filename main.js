@@ -135,6 +135,8 @@ function hideCartItems() {
   cartPopUp.classList.remove("cart-active");
 }
 
+
+
 //
 
 // show hide video pop up

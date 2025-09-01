@@ -245,12 +245,16 @@ https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css
 
           <h4 class="price-total">total : <span id="cartTotal"> $ </span></h4>
 
-          <button class="pay-btn btn">Pay Now</button>
+          <a href="#"  class="pay-btn btn" onclick="ClearCart()" >Pay Now</a>
         </div>
 
-        <!--  -->
-      </div>
+      </div> 
     </header>
+
+       <!-- pop up sucsseful payed  --> 
+        <div class="pay-popup  " id="pay-sucsses" >
+          <img src="./imgs/paid-sucssefuly.jpg" alt="" srcset="">
+        </div>
 
     <main>
       <!-- Hero section -->
@@ -401,7 +405,7 @@ https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css
 
       <!-- Most populer Meal  -->
 
-      <section id="meals" class="meal-sec">
+      <section id="meals" class="meal-sec   wow fadeIn"    data-wow-duration="4s" ">
         <div class="titles-content">
           <!-- make animation -->
           <p class="sub-title">our Menu</p>

@@ -4,9 +4,15 @@ let priceCounter = 19;
 
 let cartFoodNumber = document.getElementById("numOfFood");
 
+let sucssesPopUp = document.getElementById('pay-sucsses') 
 
-// make image loading lazy 
-// loading="lazy"
+
+{
+  let  cartPopUp = document.getElementById("cartPopup"); 
+ 
+}
+
+
 
 
 
@@ -68,7 +74,7 @@ function showAllMeal(MealsData) {
 
     return ` <div class="food-card"  data-id=${id} >
               <div class="food-image">
-                <img src=${image} alt="Double Beef Burger" />
+                <img  loading="lazy" src=${image} alt="Double Beef Burger" />
               </div>
               <div class="food-details">
                 <h3>${title}</h3>
@@ -128,8 +134,6 @@ btnElments.forEach((btn) => {
 }
 
 
-
-
 function filterMealsByCategory(Meals, e) {
   e.preventDefault();
 
@@ -177,21 +181,31 @@ function getCartStorage() {
   return JSON.parse(localStorage.getItem("Cart")) || [];
 }
 
-// restore item added to cart btn state
-// function restoreCartButtons() {
-//   let cartItems = JSON.parse(localStorage.getItem('Cart')) || [];
 
-//   cartItems.forEach(item => {
-//     const card = document.querySelector(`.food-card[data-id="${item.id}"]`);
-//     if (card) {
-//       const btn = card.querySelector('.add-to-cart-btn');
-//       if (btn) {
-//         btn.classList.add('in-cart');
-//         btn.textContent = 'Item in Cart';
-//       }
-//     }
-//   });
-// }
+function ClearCart() { 
+  
+  let cartItems =  []; 
+  localStorage.setItem("Cart", JSON.stringify(cartItems));
+
+  updateCart() 
+
+  totalPrice.textContent = 0 
+  cartPopUp.classList.remove("cart-active");
+
+  sucssesPopUp.classList.add('active') 
+
+  setTimeout(() => {
+    sucssesPopUp.classList.remove('active') 
+  }, 2500);
+
+  // handle class add in cart later 
+  setTimeout(() => {
+  location.reload();
+}, 3000);
+
+}
+
+// 
 
 function addFoodToCart(foodId) {
  
@@ -244,9 +258,9 @@ function updateCart() {
               <p>$${subTotalItem}</p>
             </div> 
             <div class="quantity-btns" > 
-              <a  onclick='increseQuantity(${index})'  class="quantity-btn" href="#"> + </a> 
+              <a  onclick='increseQuantity(${index})'  class="quantity-btn" > + </a> 
               <span> ${quantity} </span>
-              <a   onclick='decreseQuantity(${index})' class="quantity-btn" href="#">-</a>
+              <a   onclick='decreseQuantity(${index})' class="quantity-btn" >-</a>
             </div>
           </div> `; 
   });
