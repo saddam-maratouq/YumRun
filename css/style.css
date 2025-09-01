@@ -223,8 +223,6 @@ a {
   animation: l1 1s steps(4) infinite; */
 }
 
-
-
 @keyframes l1 {
   to {
     clip-path: inset(0 -34% 0 0);
@@ -1247,19 +1245,41 @@ body.dark-mode .category-content span.active {
   padding: 0 0 20px;
   height: 455px;
   height: fit-content;
+  transition: var(--transtion-speed);
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) inset ;
+}
 
+.food-card:hover {
+   transform: translateY(-8px);
 }
 
 .food-card .food-image {
   width: 100%;
   margin: auto;
+  /* clip-path: ellipse(74% 96% at 50% 0%); */
+  /* clip-path: ellipse(95% 96% at 73% 0); */
+  /* clip-path: ellipse(90% 100% at 50% 0);  */
+  clip-path: ellipse(90% 96% at 50% 0);
+  /* transition: var(--transtion-speed); */
+  transition: clip-path 0.6s ease-in-out;
+}
+
+.food-card .food-image:hover {
+  /* clip-path: ellipse(100% 96% at 50% 0%); */
+  /* clip-path: ellipse(260% 104% at 73% 0); */
+    /* clip-path: ellipse(120% 100% at 50% 0); expand arc smoothly  new */
+  clip-path: ellipse(90% 118% at 50% 0);
+
+
 }
 
 .food-card .food-image img {
   max-width: 100%;
 }
 
+
 .food-card .food-details {
+
 }
 
 .food-card .food-details h3 {
@@ -1395,24 +1415,18 @@ body.dark-mode .category-content span.active {
   position: relative;
   width: 1000px;
 }
- 
 
-@media (max-width: 997px) { 
-
-.sec-client-num {
-  height: 60dvh;
-}
-
-.sec-client-num .container {
-    flex-direction: column;
+@media (max-width: 997px) {
+  .sec-client-num {
+    height: 60dvh;
   }
 
-
+  .sec-client-num .container {
+    flex-direction: column;
+  }
 }
 
-
-
-.counter [data-title=counter-num] {
+.counter [data-title="counter-num"] {
   font-size: 48px;
   color: #fff;
 }
@@ -1421,7 +1435,6 @@ body.dark-mode .category-content span.active {
   color: #ffffffc6;
   margin-top: 15px;
   font-size: 17px;
-  
 }
 
 /*=================== end client num  ====================== */
@@ -1579,7 +1592,7 @@ body.dark-mode .category-content span.active {
 
 .subscripe-section {
   padding: var(--section-padding) 0;
-  padding: 100px 0 ;
+  padding: 100px 0;
   background-color: var(--website-bg-color);
 }
 
