@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
 
-    <!-- font awsome cdn  -->
+    <!-- fontawsome cdn  -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -25,6 +25,12 @@
 
     <!-- reset css  Normalize -->
     <link rel="stylesheet" href="../css/reset.css" />
+
+      <!-- wow css -->
+      <link href="
+      https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css
+      " rel="stylesheet"> 
+
 
     <!-- Swiper css  -->
     <link
@@ -46,6 +52,17 @@
       defer
       src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
     ></script>
+
+    <!-- wow js  -->
+    <script
+      defer
+      src="
+     https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"
+    ></script>
+
+    <!-- local js  --> 
+     
+    <script  defer  src="../js/wow-library.js" >   </script>
 
     <script defer src="../main.js"></script>
 
@@ -173,7 +190,7 @@
     </header>
 
     <main>
-      <section class="inner-about-sec">
+      <section class="inner-about-sec wow slideInDown " data-wow-duration="3s" >
         <!-- Swiper -->
         <!-- Slider main container -->
         <div class="swiper">
@@ -221,7 +238,7 @@
         </div>
       </section>
 
-      <section class="inner-team">
+      <section class="inner-team  wow bounceIn " data-wow-duration="4s"   data-wow-delay="4s" >
           <!-- Strat Team section -->
       <div class="team-section" id="team">
         <div class="titles-content">

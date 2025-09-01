@@ -1235,7 +1235,7 @@ body.dark-mode .category-content span.active {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  height: 1023px;
+  height: 980px;
   overflow: scroll;
 }
 

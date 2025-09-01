@@ -23,17 +23,16 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- owl css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
     <!-- reset css  Normalize -->
     <link rel="stylesheet" href="../css/reset.css" />
+
+    <!-- wow css -->
+      <link href="
+      https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css
+      " rel="stylesheet"> 
+
+
 
     <!-- link css -->
     <link rel="stylesheet" href="../css/style.css" />
@@ -44,14 +43,16 @@
     <!-- jquery  js  -->
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <!-- owl -->
+
+  <!-- wow js  -->
     <script
       defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      src="
+   https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"
     ></script>
+
+    <!-- local js  -->
+     <script  defer  src="../js/wow-library.js" ></script>
 
     <script defer src="../main.js"></script>
   </head>
@@ -183,16 +184,18 @@
     </header>
 
     <main>
-      <!-- Hero section -->
+      <!-- contact section -->
       <section class="inner-cotact-sec">
-        <div class="titles-content">
+        <div class="titles-content wow slideInLeft " data-wow-duration="3s" >
           <!-- make animation -->
           <p class="sub-title">contact us</p>
           <h1 class="title">Need Help? Contact Us</h1>
         </div>
+
         <div class="container">
           <iframe
-            class="map"
+            class="map wow slideInDown " 
+            data-wow-duration="3s" 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.3614657903963!2d-74.00356277665415!3d40.71005857139399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown.%20Conference%20Center!5e0!3m2!1sar!2sjo!4v1756547706953!5m2!1sar!2sjo"
             width="100%"
             height="450"
