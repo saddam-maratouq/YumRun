@@ -3,10 +3,6 @@
 
 
 
-
-
-
-
 let loadingPage = document.getElementById("loading");
 
 function getLoading() {
@@ -38,6 +34,7 @@ window.addEventListener("scroll", () => {
 
 // Drak mode //
 
+
 const sunIcon = document.getElementById("sun-icon");
 // console.log(sunIcon);
 
@@ -63,6 +60,8 @@ function enableLightMode() {
   sunIcon.style.display = "none";
   document.getElementById("body").classList.remove("dark-mode");
 }
+
+// end 
 
 // Active link on click
 

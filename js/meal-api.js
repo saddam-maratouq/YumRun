@@ -14,8 +14,6 @@ let sucssesPopUp = document.getElementById('pay-sucsses')
 
 
 
-
-
 // to show cart when refresh
 window.addEventListener("DOMContentLoaded", () => {
   // your code here
@@ -74,7 +72,7 @@ function showAllMeal(MealsData) {
 
     return ` <div class="food-card"  data-id=${id} >
               <div class="food-image">
-                <img  loading="lazy" src=${image} alt="Double Beef Burger" />
+                <img  fetchpriority="high" loading="lazy"  src=${image} alt="Double Beef Burger" />
               </div>
               <div class="food-details">
                 <h3>${title}</h3>
@@ -93,6 +91,7 @@ function showAllMeal(MealsData) {
 
   foodContainerMeals.innerHTML = MealsFetched;
 }
+
 
 function getCategories(MealsData) {
   let uniqueCategory = [...new Set(MealsData.map((meal) => meal.category))];
